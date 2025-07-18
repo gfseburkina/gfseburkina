@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFSE Burkina – Génie Froid & Services Électriques</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        section {
+            padding: 60px 40px;
+        }
+        h1, h2 {
+            color: #003366;
+        }
+        .services, .gallery, .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex: 1 1 250px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        .contact-info a {
+            color: #00ccff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div><strong>GFSE Burkina</strong></div>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#testimonials">Témoignages</a>
+        <a href="#devis">Demande de devis</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="hero">
+    <h1>Génie Froid & Services Électriques</h1>
+    <p>Experts en climatisation, électricité, solaire et plus encore depuis 8 ans.</p>
+</section>
+
+<section id="services">
+    <h2>Nos Services</h2>
+    <div class="services">
+        <div class="card"><h3>Climatisation</h3><p>Installation, entretien et dépannage de systèmes split, VRV, CTA.</p></div>
+        <div class="card"><h3>Électricité</h3><p>Installation et rénovation d’électricité bâtiment (prises, tableaux, éclairage...)</p></div>
+        <div class="card"><h3>Solaire</h3><p>Équipements solaires pour maison, boutique, site isolé.</p></div>
+        <div class="card"><h3>Plomberie</h3><p>Installation de sanitaires, tuyauterie et raccords d’eau.</p></div>
+        <div class="card"><h3>Vente d’équipements</h3><p>Climatiseurs, câbles, ampoules, panneaux solaires, etc.</p></div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2>Galerie Chantier</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1616401781807-b7cf5c613cbf" alt="clim pro">
+        <img src="https://images.unsplash.com/photo-1611974789855-9c3c37699f44" alt="panneau solaire">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="travaux électricité">
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2>Témoignages Clients</h2>
+    <div class="testimonials">
+        <div class="card"><p>« Merci à GFSE Burkina pour l’installation rapide de ma clim ! »<br><strong>– M. Traoré</strong></p></div>
+        <div class="card"><p>« Service impeccable et matériel de qualité. Je recommande. »<br><strong>– Mme Kaboré</strong></p></div>
+    </div>
+</section>
+
+<section id="devis">
+    <h2>Demande de Devis</h2>
+    <form>
+        <input type="text" placeholder="Nom complet" required>
+        <input type="tel" placeholder="Numéro WhatsApp" required>
+        <input type="email" placeholder="Adresse e-mail">
+        <select required>
+            <option value="">Service souhaité</option>
+            <option>Installation clim</option>
+            <option>Électricité bâtiment</option>
+            <option>Installation solaire</option>
+            <option>Plomberie</option>
+            <option>Autre</option>
+        </select>
+        <input type="text" placeholder="Localité (ex: Ouaga, Koudougou)" required>
+        <textarea placeholder="Détails du projet...
+
+⚠️ Si vous êtes à Koudougou, la demande sera aussi transmise à notre chef de chantier Brice YAMEOGO Fran-salles (WhatsApp : +226 55912473)." rows="4"></textarea>
+        <button type="submit">Envoyer la demande</button>
+    </form>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p class="contact-info">
+        📧 Email : <a href="mailto:gfseburkina@gmail.com">gfseburkina@gmail.com</a><br>
+        📞 WhatsApp : <a href="https://wa.me/22664583347" target="_blank">+226 64 58 33 47</a><br>
+📱 Autres contacts : +226 72 34 18 35 / +226 58 26 54 57 / +226 04 41 49 00<br>
+        📱 TikTok : <a href="https://tiktok.com/@gfseburkina" target="_blank">@gfseburkina</a>
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2025 GFSE Burkina – Site conçu par Gilles Rayanne Yameogo</p>
+</footer>
+
+</body>
+</html>
