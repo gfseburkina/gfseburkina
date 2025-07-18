@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFSE Burkina - Génie Froid & Services Électriques</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        scroll-behavior: smooth;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .contact-info {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        background: rgba(255,255,255,0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
+    }
+
+    /* Navigation */
+    nav {
+        background: rgba(0,0,0,0.1);
+        padding: 1rem 0;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, rgba(30,60,114,0.9), rgba(42,82,152,0.9)), 
+                    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="1200" height="800" fill="%23f8f9fa"/><rect width="1200" height="800" fill="url(%23grid)"/></svg>');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 10rem 0;
+        position: relative;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(30,60,114,0.1), rgba(42,82,152,0.1));
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        background: linear-gradient(135deg, #ffffff, #e3f2fd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero .subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #e3f2fd;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1.2rem 2.5rem;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+    }
+
+    .cta-primary {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        color: white;
+    }
+
+    .cta-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Services Section */
+    .services-section {
+        padding: 6rem 0;
+        background: #f8f9fa;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 4rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+
+    .service-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    .service-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .service-card p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 6rem 0;
+        background: white;
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .about-text h2 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+    }
+
+    .about-text p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .highlight {
+        color: #ff6b6b;
+        font-weight: bold;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 2rem;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ff6b6b;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        color: #666;
+        font-weight: 500;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .testimonial-card {
+        background: rgba(255,255,255,0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .testimonial-author {
+        font-weight: bold;
+        color: #ffd700;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #25d366;
+        color: white;
+        padding: 1rem;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 1.5rem;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(37,211,102,0.6);
+    }
+
+    /* Footer */
+    footer {
+        background: #2c3e50;
+        color: white;
+        padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 1rem;
+        color: #3498db;
+        font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        color: #ecf0f1;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .footer-section a:hover {
+        color: #3498db;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #34495e;
+        color: #bdc3c7;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-content {
+            grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">GFSE BURKINA</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span> +226 64583347
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span> solutionelectrofroid@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span> Ouagadougou, Burkina Faso
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+```
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <ul class="nav-menu">
+            <li><a href="#home" class="active">Accueil</a></li>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
+            <li><a href="#vente">Vente</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>GFSE BURKINA</h1>
+            <p class="subtitle">Génie Froid & Services Électriques</p>
+            <p>Votre partenaire technologique de confiance pour tous vos besoins en climatisation, électricité, solaire, plomberie, nouvelles technologies et systèmes de surveillance au Burkina Faso</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button cta-primary">Demander un Devis</a>
+                <a href="#services" class="cta-button cta-secondary">Nos Services</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Pourquoi Choisir GFSE Burkina ?</h2>
+                <p>Forte de <span class="highlight">8 années d'expérience</span> dans le domaine du génie froid et des services électriques, GFSE Burkina s'est imposée comme une référence technologique au Burkina Faso. Notre équipe de professionnels qualifiés vous accompagne dans tous vos projets avec les technologies les plus avancées.</p>
+                <p>Dirigée par <span class="highlight">YAMEOGO Gilles Rayanne</span>, notre entreprise burkinabè met un point d'honneur à maintenir les plus hauts standards de qualité et de professionnalisme dans chaque intervention, en intégrant les dernières innovations technologiques.</p>
+                <p>Nous nous engageons à fournir des solutions modernes et durables, en utilisant des équipements de pointe et en respectant les normes internationales les plus strictes.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Années d'expérience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projets réalisés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Clients satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support technique</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+    <div class="container">
+        <h2 class="section-title">Nos Services</h2>
+        <p class="section-subtitle">Des solutions technologiques complètes et innovantes adaptées à vos besoins professionnels</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">❄️</div>
+                <h3>Froid & Climatisation</h3>
+                <p>Installation, maintenance et réparation de systèmes Split, VRV, CTA et Rooftop avec technologies avancées et contrôles intelligents</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Électricité Bâtiment</h3>
+                <p>Installations électriques complètes, tableaux intelligents, domotique et systèmes de gestion énergétique automatisés</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☀️</div>
+                <h3>Installation Solaire</h3>
+                <p>Systèmes solaires photovoltaïques intelligents, kits solaires connectés et solutions de stockage d'énergie moderne</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Plomberie</h3>
+                <p>Installation et réparation de réseaux de plomberie, systèmes d'eau intelligents et solutions sanitaires connectées</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Nouvelles Technologies</h3>
+                <p>Intégration de solutions IoT, systèmes connectés, automatisation et contrôle à distance pour optimiser vos installations</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📹</div>
+                <h3>Caméras de Surveillance</h3>
+                <p>Installation de systèmes de vidéosurveillance HD/4K, caméras IP connectées et solutions de monitoring à distance</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">Témoignages Clients</h2>
+        <p class="section-subtitle">La satisfaction de nos clients est notre priorité</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Travail propre et rapide. Les nouvelles technologies intégrées sont impressionnantes. Je recommande vivement GFSE Burkina !"
+                </div>
+                <div class="testimonial-author">— M. Ouédraogo, Particulier</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Grâce à GFSE, notre système de climatisation connecté fonctionne à merveille. L'équipe est très professionnelle. Merci !"
+                </div>
+                <div class="testimonial-author">— Entreprise SOMAFER</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Service impeccable et très professionnel. Les caméras de surveillance installées nous donnent une sécurité totale."
+                </div>
+                <div class="testimonial-author">— Brice de Zorgho</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vente Section -->
+<section id="vente" class="services-section">
+    <div class="container">
+        <h2 class="section-title">Vente de Matériel</h2>
+        <p class="section-subtitle">Équipements de qualité professionnelle et technologies avancées</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌡️</div>
+                <h3>Climatiseurs & Réfrigération</h3>
+                <p>Climatiseurs Split et Inverter (1 CV à 5 CV), réfrigérateurs et congélateurs professionnels, dernières technologies</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔋</div>
+                <h3>Équipements Solaires</h3>
+                <p>Kits solaires complets intelligents, pompes solaires connectées, batteries lithium et systèmes de stockage avancés</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Matériel Électrique</h3>
+                <p>Câbles, disjoncteurs intelligents, tableaux électriques connectés, systèmes de contrôle et domotique</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Accessoires & Composants</h3>
+                <p>Compresseurs, thermostats intelligents, capteurs IoT, accessoires frigorifiques et pièces détachées</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="about-section">
+    <div class="container">
+        <h2 class="section-title">Contactez-nous</h2>
+        <p class="section-subtitle">Prêt à démarrer votre projet ? Nous sommes là pour vous accompagner</p>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Nos Coordonnées</h3>
+                <p><strong>📞 Téléphones :</strong><br>
+                +226 64583347 (YAMEOGO Gilles Rayanne)<br>
+                +226 72341835<br>
+                +226 58265457</p>
+                <p><strong>📧 Email :</strong><br>
+                solutionelectrofroid@gmail.com</p>
+                <p><strong>🌐 Site Web :</strong><br>
+                https://gfseburkina.github.io/gfseburkina/</p>
+                <p><strong>📍 Localisation :</strong><br>
+                Ouagadougou, Burkina Faso</p>
+                <p><strong>🎯 Zone d'intervention spéciale :</strong><br>
+                Koudougou - Chef de chantier : YAMEOGO Brice Fran-salles<br>
+                WhatsApp : +226 55 91 24 73</p>
+            </div>
+            <div class="stats-grid">
+                <a href="https://wa.me/22664583347" class="stat-item" style="text-decoration: none;">
+                    <div class="stat-number">💬</div>
+                    <div class="stat-label">WhatsApp Direct</div>
+                </a>
+                <a href="mailto:solutionelectrofroid@gmail.com" class="stat-item" style="text-decoration: none;">
+                    <div class="stat-number">📧</div>
+                    <div class="stat-label">Email Rapide</div>
+                </a>
+                <a href="tel:+22664583347" class="stat-item" style="text-decoration: none;">
+                    <div class="stat-number">📞</div>
+                    <div class="stat-label">Appel Direct</div>
+                </a>
+                <div class="stat-item">
+                    <div class="stat-number">🕒</div>
+                    <div class="stat-label">Devis Gratuit 24h</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GFSE Burkina</h3>
+                <p>Génie Froid & Services Électriques</p>
+                <p>Votre partenaire technologique depuis 8 ans</p>
+                <p>Innovation - Qualité - Professionnalisme</p>
+            </div>
+            <div class="footer-section">
+                <h3>Nos Services</h3>
+                <a href="#services">Froid & Climatisation</a>
+                <a href="#services">Électricité Bâtiment</a>
+                <a href="#services">Installation Solaire</a>
+                <a href="#services">Plomberie</a>
+                <a href="#services">Nouvelles Technologies</a>
+                <a href="#services">Caméras de Surveillance</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 +226 64583347 (Gilles Rayanne)</p>
+                <p>📞 +226 72341835 / +226 58265457</p>
+                <p>📧 solutionelectrofroid@gmail.com</p>
+                <p>📍 Ouagadougou, Burkina Faso</p>
+            </div>
+            <div class="footer-section">
+                <h3>Zone Spéciale</h3>
+                <p><strong>Koudougou</strong></p>
+                <p>Chef de chantier : YAMEOGO Brice Fran-salles</p>
+                <p>📱 WhatsApp : +226 55 91 24 73</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 GFSE Burkina - Tous droits réservés | Dirigé par YAMEOGO Gilles Rayanne</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/22664583347" class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
+    💬
+</a>
+
+<!-- Smooth Scroll Script -->
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Active navigation highlighting
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+```
+
+</body>
+</html>
